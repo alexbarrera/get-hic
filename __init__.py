@@ -20,10 +20,10 @@ def projects():
 @app.route('/projects/GGR/hic/<int:timepoint>/<string:region>')
 def region(timepoint, region):
     foo1, chrom1, start1, end1, \
-    foo2, chrom2, start2, end2 = re.match('(chr|)(\w+)\:(\d+)\-(\d+)\.(chr|)(\w+)\:(\d+)\-(\d+)', region).groups(0)
-    # return 'Looking for HiC interaction maps: Time Point %d, regions: %s' % (timepoint, region)
+    foo2, chrom2, start2, end2 = re.match('(chr|)(\w+):(\d+)\-(\d+)\.(chr|)(\w+):(\d+)\-(\d+)', region).groups(0)
+
     # simply create a file with the contents on demand
-    outfile = "ggr_%dhs_pairs_" % timepoint + \
+    outfile = constants.TMP_DIR + "/ggr_%dhs_pairs_" % timepoint + \
               ".".join(["chr%s"%chrom1, start1, end1, "chr%s"%chrom2, start2, end2]) + \
               '.txt'
     tmpfile = tempfile.NamedTemporaryFile('w')
