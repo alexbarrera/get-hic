@@ -1,1 +1,65 @@
-{{ mess }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>GGR Hi-C Hub</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/normalize.css') }}">
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/skeleton.css') }}">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/ico" href="../static/images/favicon.ico">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <div class="row">
+        <div class="eleven column">
+            <img src="{{ url_for('static', filename='images/ggr2.png') }}" class="u-max-full-width"/>
+            <h2 style="margin-top: 10%">Welcome To The GGR Hi-C Data Hub</h2>
+                <p>This site provides an entry point to access the Hi-C datasets associated with the
+                <a href="http://reddylab.org/projects/">GGR project</a>. The downloaded data are the results from executing the
+                <code>dump</code> command from the Juicebox Command Line Tool program developed in the <a href="http://aidenlab.org">Aiden Lab</a>.
+                For a detailed description of the output, please see the
+                <a href="http://aidenlab.org/juicebox/docs.html">Juicebox Documentation</a>.</p>
+            <h3>The Data</h3>
+            <p>Tony D'Ippolito in the lab has been investigating the role of chromatin conformation in the
+                Glucocorticoid Response. <b>Blob about Tony's work</b>.</p>
+            <p>In this site, you can download normalized reads (Knight-Ruiz method) of pair contacts (interaction maps)
+                at different time points after induction of 100nM of DEX (0h, 4h, 8h and 12h of exposure). The output is produced at 5kb resolution
+                and consists in a tab-delimited file in the following format:
+            <pre><code>&lt;coordinate1&gt; &lt;coordinate2&gt; &lt;norm_reads&gt;<br>100000 200000 1102<br>105000 200000 20.1<br>...</code></pre>
+            </p>
+            <h3>Accessing The Data</h3>
+            <p style="background-color:#faff1f;"><b>WIP note: in development, only the interaction map after 8hs of DEX is available.</b></p>
+                <p>To download the interaction maps, for a given time point, 2 regions of interest (e.g. A and B) must be specified in the following way:</p>
+                <pre><code><b>FINAL_URL/</b>&lt;hours after DEX&gt;/&lt;chrA&gt;:&lt;coordA1&gt;-&lt;coordA2&gt;.&lt;chrB&gt;:&lt;coordB1&gt;-&lt;coordB2&gt;<br><b>Example:</b><br><a href="http://67.159.92.68:32768/projects/GGR/hic/8/chr19:1000000-2000000.chr19:200000-300000">http://67.159.92.68:32768/projects/GGR/hic/8/chr19:1000000-2000000.chr19:200000-300000</a></code></pre>
+
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
